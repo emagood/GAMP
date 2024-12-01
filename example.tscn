@@ -24,8 +24,12 @@ func _process(delta):
 	update_text()
 
 func _ready():
+	var thisScript: GDScript = %SmoothScrollContainer.get_script()
+	var dic_metodo = thisScript.get_signal_list()
+	prints(dic_metodo)
 	update_text()
 	scroll_to_line(get_line_count())
+
 
 
 func update_text():
@@ -37,6 +41,12 @@ func update_text():
 		var propertyValue = %SmoothScrollContainer.get(propertyName)
 		var propertyType = propertyInfo.usage
 		text += \"[color=green]%s:[/color] %s\\n\" % [propertyName, propertyValue] if propertyType == 4096 else \"[color=yellow]%s:[/color] %s\\n\" % [propertyName, propertyValue]
+
+
+
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		print(\"Goodbye!\")
 "
 
 [node name="Example" type="Control"]
@@ -67,8 +77,10 @@ mouse_filter = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SmoothScrollContainer/Control"]
 layout_mode = 0
-offset_right = 390.0
-offset_bottom = 246.0
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 389.0
+offset_bottom = 941.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1

@@ -1,5 +1,5 @@
 @tool
-@icon("./icons/NetworkTextureRect.svg")
+
 class_name NetworkTextureRect
 extends TextureRect
 

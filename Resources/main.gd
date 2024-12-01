@@ -411,13 +411,14 @@ func prev() -> void: # goes to the previous song (if there is one)
 		var parentChildCount: int = songElementsContainer.get_child_count()
 		var currentSongElementPosition: int = currentSongElement.get_index()
 		var prevChildIndex: int = currentSongElementPosition - 1
-		if prevChildIndex > 2:
+		if prevChildIndex > 1:  # >2 ??
+				#region  I prefer to use a signal or use a group, nodes are not called is slow and confusing
 			var nextChild: MarginContainer = songElementsContainer.get_child(prevChildIndex)
-			nextChild.songElementPressed()
+			nextChild._on_song_element_button_pressed()
 		else:
 			var nextChild: MarginContainer = songElementsContainer.get_child(parentChildCount - 1)
-			nextChild.songElementPressed()
-
+			nextChild._on_song_element_button_pressed()
+			#region end #   #nextChild._on_song_element_button_pressed()
 
 func next() -> void: # skips to the next song (if there is one, if there is not, it goes to the first one)
 	if % MusicPlayer.stream != null: #
@@ -518,7 +519,7 @@ func loopButton() -> void: # loops the song
 
 func loadSongFile(filepath : String) -> AudioStream: # loads the song file (supports only .wav, .mp3 and .ogg)
 	var extension: String = filepath.get_extension()
-
+	
 	var data: PackedByteArray = load_song_data(filepath)
 
 	match extension:
@@ -573,7 +574,9 @@ func songElementSelectedFunction(songElementNode : Node, songFileName : String, 
 	setSongTitleAuthorDuration(songAuthor, songTitle, songTotalDuration)
 
 	# Lyrics Retriever Section:
-
+	if currentSongElement.song_thumbnail_texture_rect.texture is not ImageTexture:
+		$MarginContainer/Panel/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/TabContainer.current_tab = 2
+		return
 	requestSongLyrics(songTitle, songAuthor, songTotalDuration)
 	#requestSongImage(songAuthor, songTitle)
 	requestAuthorImage(songAuthor, songTitle)

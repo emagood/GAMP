@@ -8,11 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://bl2c2utyd533e" path="res://Resources/Spotify_icon.svg" id="3_txr0t"]
 [ext_resource type="Script" path="res://Resources/EQVolumeSlider.gd" id="4_05nc3"]
 [ext_resource type="Script" path="res://Resources/Visualizers/visualizer2.gd" id="4_ama8h"]
-[ext_resource type="Texture2D" uid="uid://bxo1o37an65xe" path="res://Resources/YouTube_Logo_2017.svg" id="4_mawki"]
+[ext_resource type="Texture2D" uid="uid://ppeieuspfox4" path="res://Resources/YouTube_Logo_2017.svg" id="4_mawki"]
 [ext_resource type="Script" path="res://addons/tattomoosa.network-texture-rect/network_texture_rect.gd" id="7_8qp3f"]
 [ext_resource type="Script" path="res://Resources/downloading_progress.gd" id="7_l4l3x"]
 [ext_resource type="Shader" path="res://Resources/BGShader.gdshader" id="8_fn18o"]
-[ext_resource type="PackedScene" uid="uid://d85lroaqrr4q" path="res://visualizer.tscn" id="13_erlu8"]
+[ext_resource type="PackedScene" path="res://visualizer.tscn" id="13_erlu8"]
 
 [sub_resource type="Environment" id="Environment_b1qu4"]
 background_mode = 3

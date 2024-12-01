@@ -23,3 +23,14 @@ VU_COUNT = 20
 MIN_DB = 52.5
 ANIMATION_SPEED = 0.17
 HEIGHT_SCALE = 6.0
+
+[node name="loal" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="loal" to="." method="_on_loal_pressed"]
