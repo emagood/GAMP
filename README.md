@@ -1,5 +1,5 @@
 # GAMP
-
+ ![Screenshot borrar](https://github.com/emagood/GAMP/blob/main/capture_gamp/adapter_gl3.PNG)
 Descrizione
 
 ## Sottitolo 1
