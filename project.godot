@@ -22,6 +22,10 @@ config/icon="res://icon.svg"
 DropFilesHandler="*res://Autoloads/drop_files_handler.gd"
 LyricsSynchronizer="*res://Autoloads/lyrics_synchronizer.gd"
 
+[display]
+
+window/size/borderless=true
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/MusicMetadata/plugin.cfg", "res://addons/SmoothScroll/plugin.cfg", "res://addons/tattomoosa.network-texture-rect/plugin.cfg")

@@ -1,10 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1733095731.0
-default_bus_layout.tres::AudioBusLayout::-1::1733095196::0::1::::<><><><>::
+::res://::1733096200.0
+default_bus_layout.tres::AudioBusLayout::4720573714785566449::1733095735::0::1::::<><><><>::
 example.tscn::PackedScene::-1::1733095070::0::1::::<><><><>::
 export_presets.cfg::TextFile::-1::1733095294::0::1::::<><><><>::
 GAMP_Icon.svg::CompressedTexture2D::2360516454097950766::1731222053::1733095707::1::::<><><>b71aaf95e8d68d6cbc71dd6c505a6a1a<>res://.godot/imported/GAMP_Icon.svg-76fe15714c77b88514eb1241e2c9861e.ctex::
-prueba xompativilidad .tscn::PackedScene::5173073029622976924::1733095722::0::1::::<><><><>::
+prueba xompativilidad .tscn::PackedScene::5173073029622976924::1733095975::0::1::::<><><><>::
 README.md::TextFile::-1::1731222053::0::1::::<><><><>::
 simpleShader.gdshader::Shader::-1::1733095100::0::1::::<><><><>::
 visualizer.tscn::PackedScene::-1::1731226737::0::1::::<><><><>::
@@ -55,9 +55,12 @@ StatusError.svg::CompressedTexture2D::6253084292296195534::1731222054::173309570
 ::res://Autoloads/::1731222053.0
 drop_files_handler.gd::GDScript::-1::1731222053::0::1::::<>Node<><><>::
 lyrics_synchronizer.gd::GDScript::-1::1731222053::0::1::::<>Node<><><>::
+::res://capture_gamp/::1733096130.0
+adapter_gl3.PNG::CompressedTexture2D::1735140047173077456::1733096100::1733096836::1::::<><><>bc0edd3005ebbc75ce0c2b1edeb874d7<>res://.godot/imported/adapter_gl3.PNG-7954440abe259656e305106affbf8670.ctex::
+uhuh.PNG::CompressedTexture2D::2700344292734234366::1733096130::1733096836::1::::<><><>abedb8c42b81cf56371844d967e81699<>res://.godot/imported/uhuh.PNG-6e8e9b396a1951e9a9c7956711d18932.ctex::
 ::res://icon/::1733095707.0
 icon.png::CompressedTexture2D::3666381097338134267::1731222054::1733095707::1::::<><><>3a09a5cc73418fd6115e4b72e672a9db<>res://.godot/imported/icon.png-ffd744aa4cf81fe1c91e4d1cd246c5a2.ctex::
-::res://Resources/::1733095707.0
+::res://Resources/::1733095976.0
 Bg.png::CompressedTexture2D::3546424434887563832::1731222054::1733095707::1::::<><><>6da1d2a0ec1728a2d3c929803387bdeb<>res://.godot/imported/Bg.png-d0fc6f7bddbc22170431697ccd63ce13.ctex::
 BGShader.gdshader::Shader::-1::1733095100::0::1::::<><><><>::
 downloading_progress.gd::GDScript::-1::1731222054::0::1::::<>PanelContainer<><><>::
@@ -65,7 +68,7 @@ EQVolumeSlider.gd::GDScript::-1::1731222054::0::1::::<>VSlider<><><>::
 inverted-music.png::CompressedTexture2D::1106142999635718869::1731222054::1733095707::1::::<><><>224a1c24367217d7ec52833c6151d031<>res://.godot/imported/inverted-music.png-1299ae7197edbbb7ed00b1dd25ff54b6.ctex::
 LocationSelector.tscn::PackedScene::1798748788560430518::1731222054::0::1::::<><><><>::
 main.gd::GDScript::-1::1731749901::0::1::::<>Control<><><>::
-main.tscn::PackedScene::3856444146026374748::1733095070::0::1::::<><><><>::res://Resources/main.gd<>res://addons/SmoothScroll/SmoothScrollContainer.gd<>uid://bqr6dex5q3fyu::::res://Resources/Bg.png<>res://Resources/Visualizers/visualizer2.gdshader<>res://Resources/shiningText.gdshader<>uid://bl2c2utyd533e::::res://Resources/Spotify_icon.svg<>res://Resources/EQVolumeSlider.gd<>res://Resources/Visualizers/visualizer2.gd<>uid://bxo1o37an65xe::::res://Resources/YouTube_Logo_2017.svg<>res://addons/tattomoosa.network-texture-rect/network_texture_rect.gd<>res://Resources/downloading_progress.gd<>res://Resources/BGShader.gdshader<>uid://d85lroaqrr4q::::res://visualizer.tscn
+main.tscn::PackedScene::3856444146026374748::1733095976::0::1::::<><><><>::res://Resources/main.gd<>res://addons/SmoothScroll/SmoothScrollContainer.gd<>uid://bqr6dex5q3fyu::::res://Resources/Bg.png<>res://Resources/Visualizers/visualizer2.gdshader<>res://Resources/shiningText.gdshader<>uid://bl2c2utyd533e::::res://Resources/Spotify_icon.svg<>res://Resources/EQVolumeSlider.gd<>res://Resources/Visualizers/visualizer2.gd<>uid://ppeieuspfox4::::res://Resources/YouTube_Logo_2017.svg<>res://addons/tattomoosa.network-texture-rect/network_texture_rect.gd<>res://Resources/downloading_progress.gd<>res://Resources/BGShader.gdshader<>res://visualizer.tscn
 shiningText.gdshader::Shader::-1::1731222054::0::1::::<><><><>::
 SongElement.gd::GDScript::-1::1731222054::0::1::::<>MarginContainer<><><>::
 songElement.tscn::PackedScene::6996936881337146445::1733095070::0::1::::<><><><>::res://Resources/SongElement.gd<>uid://bqr6dex5q3fyu::::res://Resources/Bg.png
