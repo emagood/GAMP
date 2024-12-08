@@ -1,16 +1,11 @@
-# GAMP
+## GAMP
+ ![Screenshot play](https://github.com/emagood/GAMP/blob/main/capture_gamp/adapter_gl3.PNG)
+Audio player in godot, ported to compatibility
 
-Descrizione
+Another quality of playing videos in FFMPG audio can be added
 
-## Sottitolo 1
-Ciao!
+Altro `Project -> adad -> adad
 
-## Sottitolo 2
+![Screenshot visual](https://github.com/emagood/GAMP/blob/main/capture_gamp/uhuh.PNG)
 
-Altro `Project -> adad -> adad`.
-
-Pezzo codice test:
-
-```
-Codice
-```
+## This project is a fork not the original, I just touch things
