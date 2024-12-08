@@ -250,74 +250,74 @@ func dirSelectedImportSong(dir: String) -> void:
 
 func importSongsThreaded(filesInDir: PackedStringArray, dir: String) -> void:
 	for i: int in filesInDir.size():
-			var fileName: String = filesInDir[i]
-			var fileExtension: String = fileName.get_extension()
-			var baseFileName: String = fileName.get_basename() # File name, without the extension, ex. "g.mp3" becomes "g"
-			var splittedFileName: PackedStringArray = baseFileName.split("")
+		var fileName: String = filesInDir[i]
+		var fileExtension: String = fileName.get_extension()
+		var baseFileName: String = fileName.get_basename() # File name, without the extension, ex. "g.mp3" becomes "g"
+		var splittedFileName: PackedStringArray = baseFileName.split("")
 			# now we gotta take everything before the "-" so that it becomes the Author and whatever it's over "-" it's the Song Title
-			var delimiterFound : bool = false
+		var delimiterFound : bool = false
 
-			var songAuthor: String = ""
-			var songTitle: String = ""
+		var songAuthor: String = ""
+		var songTitle: String = ""
 
-			for j: int in splittedFileName.size():
-				var fileNameChars: String = splittedFileName[j]
-				if !delimiterFound:
-					if fileNameChars != "-":
-						songAuthor += fileNameChars
-						delimiterFound = false
-					else:
-						delimiterFound = true
+		for j: int in splittedFileName.size():
+			var fileNameChars: String = splittedFileName[j]
+			if !delimiterFound:
+				if fileNameChars != "-":
+					songAuthor += fileNameChars
+					delimiterFound = false
 				else:
-					songTitle += fileNameChars
+					delimiterFound = true
+			else:
+				songTitle += fileNameChars
 
-			songAuthor = songAuthor.strip_edges(true, true)
-			songTitle = songTitle.strip_edges(true, true)
+		songAuthor = songAuthor.strip_edges(true, true)
+		songTitle = songTitle.strip_edges(true, true)
 
 			#print("Done reading the song: '", songAuthor, " - ", songTitle, "', importing it now...")
 
-			if fileExtension == "wav" or fileExtension == "mp3" or fileExtension == "ogg":
-				var SongElement: MarginContainer = SongElementScene.instantiate()
-				songElementsContainer.call_deferred("add_child", SongElement, true) #.add_child(SongElement)
+		if fileExtension == "wav" or fileExtension == "mp3" or fileExtension == "ogg":
+			var SongElement: MarginContainer = SongElementScene.instantiate()
+			songElementsContainer.call_deferred("add_child", SongElement, true) #.add_child(SongElement)
 
 				#SongElement.setTitle(songTitle)
 				#SongElement.setAuthor(songAuthor)
-				SongElement.setSongFileName(fileName)
-				SongElement.setSongFileNamePath(dir.path_join(fileName))
-				SongElement.setSongFileNameDir(dir)
-				SongElement.setCurrentDuration("0:00")
+			SongElement.setSongFileName(fileName)
+			SongElement.setSongFileNamePath(dir.path_join(fileName))
+			SongElement.setSongFileNameDir(dir)
+			SongElement.setCurrentDuration("0:00")
 
-				var fileCompletePath: String = dir.path_join(fileName)
-				var songTotalDuration: String
+			var fileCompletePath: String = dir.path_join(fileName)
+			var songTotalDuration: String
 
-				match fileExtension:
-					"wav":
-						var tempStream: AudioStreamWAV = AudioStreamWAV.new()
+			match fileExtension:
+				"wav":
+					var tempStream: AudioStreamWAV = AudioStreamWAV.new()
 
-						tempStream.set_format(AudioStreamWAV.FORMAT_16_BITS)
-						tempStream.mix_rate = 48000
-						tempStream.stereo = true
-						tempStream.data = load_song_data(fileCompletePath)
+					tempStream.set_format(AudioStreamWAV.FORMAT_16_BITS)
+					tempStream.mix_rate = 48000
+					tempStream.stereo = true
+					tempStream.data = load_song_data(fileCompletePath)
 
-						songTotalDuration = formatSongDuration(tempStream.get_length())
+					songTotalDuration = formatSongDuration(tempStream.get_length())
 
-					"mp3":
-						var tempStream: AudioStreamMP3 = AudioStreamMP3.new()
+				"mp3":
+					var tempStream: AudioStreamMP3 = AudioStreamMP3.new()
 
-						tempStream.data = load_song_data(fileCompletePath)
-						songTotalDuration = formatSongDuration(tempStream.get_length())
+					tempStream.data = load_song_data(fileCompletePath)
+					songTotalDuration = formatSongDuration(tempStream.get_length())
 
-					"ogg":
-						var tempStream: AudioStreamOggVorbis = AudioStreamOggVorbis.load_from_file(fileCompletePath)
-						songTotalDuration = formatSongDuration(tempStream.get_length())
+				"ogg":
+					var tempStream: AudioStreamOggVorbis = AudioStreamOggVorbis.load_from_file(fileCompletePath)
+					songTotalDuration = formatSongDuration(tempStream.get_length())
 
 
-				SongElement.call_deferred("setTotalDuration", songTotalDuration)
+			SongElement.call_deferred("setTotalDuration", songTotalDuration)
 
-			else:
-				print("File: '", fileName, "' is not an .mp3/.wav/.ogg, skipping...")
+		else:
+			print("File: '", fileName, "' is not an .mp3/.wav/.ogg, skipping...")
 
-			print(filesInDir[i])
+		print(filesInDir[i])
 
 	call_deferred("importer_Thread_Finished_Importing")
 
@@ -327,9 +327,9 @@ func importer_Thread_Finished_Importing() -> void:
 
 
 func importSingleSong(filePath: String) -> void:
-			var fileName: String = filePath.get_basename() + "." + filePath.get_extension()
-			var fileExtension: String = filePath.get_extension()
-			var baseFileName: String = filePath.get_basename() # File name, without the extention, ex. "g.mp3" becomes "g"
+	var fileName: String = filePath.get_basename() + "." + filePath.get_extension()
+	var fileExtension: String = filePath.get_extension()
+	var baseFileName: String = filePath.get_basename() # File name, without the extention, ex. "g.mp3" becomes "g"
 
 			#region Maybe Delete
 			#var songAuthor : String = ""
@@ -350,48 +350,48 @@ func importSingleSong(filePath: String) -> void:
 			#songTitle = songTitle.strip_edges(true, true)
 			#endregion
 
-			print("Done.")
+	print("Done.")
 
-			if fileExtension == "wav" or fileExtension == "mp3" or fileExtension == "ogg":
-				var SongElement: MarginContainer = SongElementScene.instantiate()
-				songElementsContainer.call_deferred("add_child", SongElement) #.add_child(SongElement)
+	if fileExtension == "wav" or fileExtension == "mp3" or fileExtension == "ogg":
+		var SongElement: MarginContainer = SongElementScene.instantiate()
+		songElementsContainer.call_deferred("add_child", SongElement) #.add_child(SongElement)
 
 				#SongElement.setTitle(songTitle)
 				#SongElement.setAuthor(songAuthor)
-				SongElement.setSongFileName(fileName)
+		SongElement.setSongFileName(fileName)
 
-				SongElement.setSongFileNamePath(filePath)
-				SongElement.setSongFileNameDir(fileName.get_base_dir())
+		SongElement.setSongFileNamePath(filePath)
+		SongElement.setSongFileNameDir(fileName.get_base_dir())
 
-				SongElement.setCurrentDuration("0:00")
+		SongElement.setCurrentDuration("0:00")
 
-				var fileCompletePath: String = fileName
-				var songTotalDuration: String
+		var fileCompletePath: String = fileName
+		var songTotalDuration: String
 
-				match fileExtension:
-					"wav":
-						var tempStream: AudioStreamWAV = AudioStreamWAV.new()
+		match fileExtension:
+			"wav":
+				var tempStream: AudioStreamWAV = AudioStreamWAV.new()
 
-						tempStream.set_format(AudioStreamWAV.FORMAT_16_BITS)
-						tempStream.mix_rate = 48000
-						tempStream.stereo = true
-						tempStream.data = load_song_data(fileCompletePath)
+				tempStream.set_format(AudioStreamWAV.FORMAT_16_BITS)
+				tempStream.mix_rate = 48000
+				tempStream.stereo = true
+				tempStream.data = load_song_data(fileCompletePath)
 
-						songTotalDuration = formatSongDuration(tempStream.get_length())
+				songTotalDuration = formatSongDuration(tempStream.get_length())
 
-					"mp3":
-						var tempStream: AudioStreamMP3 = AudioStreamMP3.new()
+			"mp3":
+				var tempStream: AudioStreamMP3 = AudioStreamMP3.new()
 
-						tempStream.data = load_song_data(fileCompletePath)
-						songTotalDuration = formatSongDuration(tempStream.get_length())
+				tempStream.data = load_song_data(fileCompletePath)
+				songTotalDuration = formatSongDuration(tempStream.get_length())
 
-					"ogg":
-						var tempStream : AudioStreamOggVorbis = AudioStreamOggVorbis.load_from_file(fileCompletePath)
-						songTotalDuration = formatSongDuration(tempStream.get_length())
+			"ogg":
+				var tempStream : AudioStreamOggVorbis = AudioStreamOggVorbis.load_from_file(fileCompletePath)
+				songTotalDuration = formatSongDuration(tempStream.get_length())
 
-				SongElement.call_deferred("setTotalDuration", songTotalDuration)
-			else:
-				print("File: '", fileName, "' is not an .mp3/.wav/.ogg, skipping...")
+		SongElement.call_deferred("setTotalDuration", songTotalDuration)
+	else:
+		print("File: '", fileName, "' is not an .mp3/.wav/.ogg, skipping...")
 
 
 func load_song_data(path: String) -> PackedByteArray:
@@ -660,7 +660,7 @@ func requestSongLyrics(Title: String, Author: String, Duration: String) -> void:
 	song_lyrics_http_request.cancel_request()
 	song_lyrics_http_request.request(final_url, headers, HTTPClient.METHOD_GET)
 
-	# Start and show the loading thingy
+
 	song_lyrics_label.text = ""
 
 	%songLyricsLinesVBoxContainer.hide()
@@ -792,13 +792,24 @@ func _on_author_cover_token_http_request_request_completed(_result: int, respons
 
 func _on_author_cover_http_request_request_completed(_result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
 	var parsedBody: Dictionary = JSON.parse_string(body.get_string_from_ascii()) if body.size() > 15 else {"response_code": response_code}
+	var images: Array
 	if response_code == 200:
-		var images: Array = parsedBody["artists"]["items"][0]["images"]
+		if typeof(parsedBody["artists"]["items"]) == TYPE_ARRAY and typeof(parsedBody["artists"]["items"][0]) == TYPE_ARRAY:
 
-		# Può capitare che spotify sbagli e non azzecchi alla prima l'artista, quindi, nel dubbio, se le immagini sono vuote, si prende il secondo accanto
-		# o almeno, così l'ho interpretata io, boh, non ho capito bene 'sta cosa, onestamente
-		if !images.size():
-			images = parsedBody["artists"]["items"][1]["images"]
+			images = parsedBody["artists"]["items"][0]["images"]
+	else :
+		push_error(" error de imagen 0 no es un array ")
+
+	if !images.size():
+		if typeof(parsedBody["artists"]["items"]) == TYPE_ARRAY and parsedBody["artists"]["items"].size() > 1:
+			var second_item = parsedBody["artists"]["items"][1]
+			if typeof(second_item.get("images", [])) == TYPE_ARRAY:
+
+				images = parsedBody["artists"]["items"][1]["images"] 
+		else :
+			push_error(" error de imagen no es un array ")
+
+
 
 		var foundURL: String = ""
 
