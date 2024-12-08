@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://chrngkl8wuroi"]
+
+[ext_resource type="Script" path="res://main/pruebaffmpg.gd" id="1_2y86u"]
+[ext_resource type="Script" path="res://main/pruebapng.gd" id="2_xrjvc"]
+[ext_resource type="Script" path="res://main/prueba_rec.gd" id="3_r3m1o"]
+[ext_resource type="Script" path="res://main/prueba_frames.gd" id="4_telsa"]
+[ext_resource type="Script" path="res://main/pruebaontrol.gd" id="5_0e0r5"]
+[ext_resource type="Script" path="res://main/audiio_wav.gd" id="6_77w6u"]
+[ext_resource type="Script" path="res://main/dinamico_wav_ffpmg.gd" id="7_dkno6"]
+[ext_resource type="Script" path="res://fcombertir.gd" id="8_wk100"]
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_6xogs"]
+
+[node name="pruebaffmpg" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2y86u")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -453.0
+offset_bottom = -274.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pruebapng" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_xrjvc")
+
+[node name="prueba rec" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_r3m1o")
+
+[node name="TextureRect" type="TextureRect" parent="prueba rec"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="prueba_frames" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_telsa")
+
+[node name="pruebaontrol" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_0e0r5")
+
+[node name="TextureRect" type="TextureRect" parent="pruebaontrol"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="audiio_wav" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_77w6u")
+
+[node name="dinamico_wav_ffpmg" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_dkno6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="dinamico_wav_ffpmg"]
+stream = SubResource("AudioStreamMP3_6xogs")
+
+[node name="fcombertir" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_wk100")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
